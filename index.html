@@ -1,0 +1,1065 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+
+  <title>OTX Travel | Plan Your Next Journey</title>
+  <meta name="description" content="Request travel booking assistance for flights, buses, trains and hotels with OTX Travel, by OTX Services.">
+
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #64748b;
+      --orange: #f59e0b;
+      --orange-dark: #c56b08;
+      --paper: #fff;
+      --bg: #f4f6fa;
+      --line: #e2e8f0;
+      --navy: #111827;
+      --soft: #fff7e8;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    header {
+      background: var(--navy);
+      color: #fff;
+      border-bottom: 1px solid #273449;
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      font-size: 1.22rem;
+      letter-spacing: -.03em;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--orange);
+      color: #1b2432;
+      font-size: 24px;
+    }
+
+    .brand small {
+      display: block;
+      color: #cbd5e1;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .03em;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-size: .9rem;
+      color: #e2e8f0;
+    }
+
+    .navlinks a:hover,
+    .footer-links a:hover {
+      color: #fbbf24;
+    }
+
+    .nav-cta {
+      background: var(--orange);
+      color: #1f2937 !important;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: 750;
+    }
+
+    .hero {
+      background: linear-gradient(
+        120deg,
+        #111827 0%,
+        #1e293b 62%,
+        #3b2a14 100%
+      );
+      color: #fff;
+      padding: 64px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border: 1px solid #f59e0b30;
+      border-radius: 50%;
+      right: -90px;
+      top: -120px;
+      box-shadow: 0 0 0 45px #f59e0b08,
+                  0 0 0 90px #f59e0b05;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 45px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: #ffffff12;
+      border: 1px solid #ffffff22;
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #fde68a;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.25rem);
+      line-height: 1.04;
+      letter-spacing: -.055em;
+      margin: 18px 0;
+    }
+
+    .hero h1 span { color: #fbbf24; }
+
+    .hero p {
+      max-width: 540px;
+      color: #cbd5e1;
+      font-size: 1.07rem;
+      margin: 0;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 25px;
+      color: #e2e8f0;
+      font-size: .9rem;
+    }
+
+    .hero-points span:before {
+      content: "✓";
+      color: #fbbf24;
+      font-weight: 900;
+      margin-right: 7px;
+    }
+
+    .hero-card {
+      background: #fff;
+      color: var(--ink);
+      padding: 26px;
+      border-radius: 22px;
+      box-shadow: 0 25px 70px #0004;
+    }
+
+    .hero-card h2 {
+      font-size: 1.25rem;
+      margin: 0 0 6px;
+    }
+
+    .hero-card > p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 18px;
+    }
+
+    .mini-services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+
+    .service {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 15px;
+      text-align: left;
+      cursor: pointer;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      transition: .18s;
+    }
+
+    .service:hover,
+    .service.active {
+      border-color: var(--orange);
+      background: var(--soft);
+      transform: translateY(-1px);
+    }
+
+    .service .emoji {
+      font-size: 1.45rem;
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .service strong {
+      display: block;
+      font-size: .98rem;
+    }
+
+    .service small {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .booking-section {
+      margin-top: -58px;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 58px;
+    }
+
+    .booking-card {
+      background: #fff;
+      border: 1px solid #e7ebf2;
+      border-radius: 22px;
+      box-shadow: 0 16px 50px #0f172a12;
+      overflow: hidden;
+    }
+
+    .booking-head {
+      padding: 25px 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .booking-head h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: -.03em;
+    }
+
+    .booking-head p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .step-label {
+      font-size: .78rem;
+      color: #9a5a00;
+      background: var(--soft);
+      padding: 7px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      font-weight: 750;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      padding: 22px 28px 0;
+      overflow-x: auto;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 10px 15px;
+      background: #fff;
+      color: #475569;
+      font-weight: 750;
+      font-size: .9rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .form-body { padding: 23px 28px 28px; }
+
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: .84rem;
+      font-weight: 750;
+      color: #334155;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px 13px;
+      font: inherit;
+      font-size: .94rem;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--orange-dark);
+      box-shadow: 0 0 0 3px #f59e0b22;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .privacy-note {
+      font-size: .78rem;
+      color: var(--muted);
+      max-width: 470px;
+    }
+
+    .submit {
+      border: 0;
+      border-radius: 11px;
+      background: var(--orange);
+      color: #1f2937;
+      font: inherit;
+      font-weight: 850;
+      padding: 14px 22px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px #f59e0b30;
+    }
+
+    .submit:hover { background: #fbbf24; }
+
+    .status {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #ecfdf5;
+      color: #166534;
+      font-size: .9rem;
+    }
+
+    .status.show { display: block; }
+
+    .trust { padding: 12px 0 58px; }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .trust-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 13px;
+    }
+
+    .trust-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 12px;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+
+    .trust-item h3 {
+      font-size: .98rem;
+      margin: 0 0 5px;
+    }
+
+    .trust-item p {
+      font-size: .84rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #e2e8f0;
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-inner p {
+      margin: 4px 0;
+      color: #94a3b8;
+      font-size: .82rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      font-size: .86rem;
+    }
+
+    .footer-links a:hover { color: #fbbf24; }
+
+    @media(max-width:800px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero { padding: 48px 0 85px; }
+
+      .hero-card { max-width: 560px; }
+
+      .navlinks a:not(.nav-cta) { display: none; }
+
+      .trust-grid { grid-template-columns: 1fr; }
+
+      .hero:after { right: -220px; }
+
+      .booking-head { padding: 22px 20px 0; }
+
+      .tabs { padding: 18px 20px 0; }
+
+      .form-body { padding: 20px; }
+
+      .booking-section { padding-bottom: 38px; }
+    }
+
+    @media(max-width:520px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+
+      .nav { height: 68px; }
+
+      .brand { font-size: 1.05rem; }
+
+      .brand-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .hero h1 { font-size: 2.55rem; }
+
+      .hero-points {
+        gap: 10px;
+        display: grid;
+      }
+
+      .hero-card { padding: 18px; }
+
+      .mini-services { gap: 8px; }
+
+      .service { padding: 12px; }
+
+      .booking-head { display: block; }
+
+      .step-label {
+        display: inline-block;
+        margin-top: 12px;
+      }
+
+      .fields { grid-template-columns: 1fr; }
+
+      .field.full { grid-column: auto; }
+
+      .form-bottom {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .submit { width: 100%; }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="https://explore.otxs.de" aria-label="OTX Travel home">
+        
+        <span>
+          OTX Travel
+          <small>by OTX Services · Discover and Explore</small>
+        </span>
+      </a>
+
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="https://explore.otxs.de">Explore</a>
+        <a href="https://go.explore.otxs.de">Go & Explore</a>
+        <a href="https://treks.explore.otxs.de">Treks</a>
+        <a href="https://stays.explore.otxs.de">Stays</a>
+        <a class="nav-cta" href="#booking">Plan my journey ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">✦ YOUR JOURNEY, YOUR WAY</div>
+
+          <h1>
+            Travel plans?
+            <br>
+            <span>Let's make them happen.</span>
+          </h1>
+
+          <p>
+            Tell us where you want to go. OTX Travel helps you explore
+            ticket and stay options with personal booking assistance.
+          </p>
+
+          <div class="hero-points">
+            <span>Personalised assistance</span>
+            <span>Multiple travel options</span>
+            <span>One simple enquiry</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>What are you planning?</h2>
+          <p>Choose a service to start your booking enquiry.</p>
+
+          <div class="mini-services">
+            <button class="service active" type="button" data-service="flights">
+              <span class="emoji">✈️</span>
+              <strong>Flights</strong>
+              <small>Domestic & international</small>
+            </button>
+
+            <button class="service" type="button" data-service="bus">
+              <span class="emoji">🚌</span>
+              <strong>Bus</strong>
+              <small>Routes & operators</small>
+            </button>
+
+            <button class="service" type="button" data-service="trains">
+              <span class="emoji">🚆</span>
+              <strong>Trains</strong>
+              <small>Rail journey assistance</small>
+            </button>
+
+            <button class="service" type="button" data-service="hotels">
+              <span class="emoji">🏨</span>
+              <strong>Hotels</strong>
+              <small>Stays & accommodation</small>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-section wrap" id="booking">
+      <div class="booking-card">
+        <div class="booking-head">
+          <div>
+            <h2 id="form-title">Flight booking enquiry</h2>
+            <p id="form-subtitle">
+              Share your trip details and we'll help you explore available options.
+            </p>
+          </div>
+
+          <span class="step-label">✦ No obligation to enquire</span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Travel service">
+          <button class="tab active" type="button" data-service="flights"
+            role="tab" aria-selected="true">✈ Flights</button>
+          <button class="tab" type="button" data-service="bus"
+            role="tab" aria-selected="false">🚌 Bus</button>
+          <button class="tab" type="button" data-service="trains"
+            role="tab" aria-selected="false">🚆 Trains</button>
+          <button class="tab" type="button" data-service="hotels"
+            role="tab" aria-selected="false">🏨 Hotels</button>
+        </div>
+
+        <form id="travel-form" class="form-body">
+          <div id="dynamic-fields" class="fields"></div>
+
+          <div class="fields" style="margin-top:22px;padding-top:20px;border-top:1px solid var(--line)">
+            <div class="field">
+              <label for="customer-name">Your name *</label>
+              <input id="customer-name" name="customerName"
+                autocomplete="name" required placeholder="Full name">
+            </div>
+
+            <div class="field">
+              <label for="customer-email">Email address *</label>
+              <input id="customer-email" name="customerEmail"
+                type="email" autocomplete="email" required
+                placeholder="you@example.com">
+            </div>
+
+            <div class="field">
+              <label for="customer-phone">Phone / WhatsApp *</label>
+              <input id="customer-phone" name="customerPhone"
+                type="tel" autocomplete="tel" required
+                placeholder="Include country code if possible">
+            </div>
+
+            <div class="field">
+              <label for="contact-method">Preferred contact method</label>
+              <select id="contact-method" name="contactMethod">
+                <option>Email</option>
+                <option>Phone call</option>
+                <option>WhatsApp</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="notes">Anything else we should know? (optional)</label>
+              <textarea id="notes" name="notes"
+                placeholder="Preferred timings, flexibility, number of rooms, special requests…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-bottom">
+            <div class="privacy-note">
+              This is a booking enquiry, not a confirmed reservation.
+              Availability, prices and booking terms must be confirmed before
+              payment. Please avoid entering sensitive payment details here.
+            </div>
+
+            <button class="submit" type="submit">
+              Prepare booking enquiry →
+            </button>
+          </div>
+
+          <div class="status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="trust wrap" id="how-it-works">
+      <div class="trust-grid">
+        <article class="trust-item">
+          <div class="trust-icon">🧭</div>
+          <div>
+            <h3>1. Share your plans</h3>
+            <p>Choose a travel service and fill in the trip details that matter.</p>
+          </div>
+        </article>
+
+        <article class="trust-item">
+          <div class="trust-icon">🔎</div>
+          <div>
+            <h3>2. Explore options</h3>
+            <p>We'll review your request and help you understand available options and pricing.</p>
+          </div>
+        </article>
+
+        <article class="trust-item">
+          <div class="trust-icon">🎟️</div>
+          <div>
+            <h3>3. Confirm your booking</h3>
+            <p>Proceed only after the itinerary, total price and booking terms are confirmed.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <strong>OTX Travel</strong>
+        <p>by OTX Services · Discover and Explore</p>
+        <p>© <span id="year"></span> OTX Services. All rights reserved.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://explore.otxs.de">OTX Home</a>
+        <a href="https://otxs.de/policy/">Policies</a>
+        <a href="mailto:otxs.de@gmail.com">Email us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const configs = {
+      flights: {
+        title: "Flight booking enquiry",
+        subtitle: "Share your trip details and we'll help you explore available options.",
+        fields: [
+          {
+            label: "Departure city or airport *",
+            name: "origin",
+            placeholder: "e.g. Delhi (DEL)",
+            required: true
+          },
+          {
+            label: "Destination city or airport *",
+            name: "destination",
+            placeholder: "e.g. Bengaluru (BLR)",
+            required: true
+          },
+          {
+            label: "Departure date *",
+            name: "departure",
+            type: "date",
+            required: true
+          },
+          {
+            label: "Return date",
+            name: "returnDate",
+            type: "date"
+          },
+          {
+            label: "Trip type",
+            name: "tripType",
+            type: "select",
+            options: ["One way", "Round trip", "Multi-city"]
+          },
+          {
+            label: "Passengers",
+            name: "passengers",
+            type: "select",
+            options: ["1 adult", "2 adults", "3 adults", "4 adults", "5+ passengers"]
+          },
+          {
+            label: "Cabin preference",
+            name: "cabin",
+            type: "select",
+            options: ["Economy", "Premium economy", "Business", "First class", "No preference"]
+          }
+        ]
+      },
+
+      bus: {
+        title: "Bus ticket enquiry",
+        subtitle: "Tell us your route and travel date to get help with bus options.",
+        fields: [
+          {
+            label: "Departure city or stop *",
+            name: "origin",
+            placeholder: "Where are you starting?",
+            required: true
+          },
+          {
+            label: "Destination city or stop *",
+            name: "destination",
+            placeholder: "Where are you going?",
+            required: true
+          },
+          {
+            label: "Travel date *",
+            name: "departure",
+            type: "date",
+            required: true
+          },
+          {
+            label: "Return date (optional)",
+            name: "returnDate",
+            type: "date"
+          },
+          {
+            label: "Passengers",
+            name: "passengers",
+            type: "select",
+            options: ["1 passenger", "2 passengers", "3 passengers", "4 passengers", "5+ passengers"]
+          },
+          {
+            label: "Seat preference",
+            name: "seat",
+            type: "select",
+            options: ["No preference", "Window", "Aisle", "Sleeper", "Seater"]
+          }
+        ]
+      },
+
+      trains: {
+        title: "Train booking assistance",
+        subtitle: "Share your rail journey details. Ticket availability and booking depend on authorised access.",
+        fields: [
+          {
+            label: "From station or city *",
+            name: "origin",
+            placeholder: "Departure station",
+            required: true
+          },
+          {
+            label: "To station or city *",
+            name: "destination",
+            placeholder: "Arrival station",
+            required: true
+          },
+          {
+            label: "Journey date *",
+            name: "departure",
+            type: "date",
+            required: true
+          },
+          {
+            label: "Return date (optional)",
+            name: "returnDate",
+            type: "date"
+          },
+          {
+            label: "Passengers",
+            name: "passengers",
+            type: "select",
+            options: ["1 passenger", "2 passengers", "3 passengers", "4 passengers", "5+ passengers"]
+          },
+          {
+            label: "Class preference",
+            name: "class",
+            type: "select",
+            options: ["No preference", "Sleeper", "AC 3 Tier", "AC 2 Tier", "AC First Class", "Chair Car"]
+          }
+        ]
+      },
+
+      hotels: {
+        title: "Hotel booking enquiry",
+        subtitle: "Tell us where and when you need a stay, and we'll help explore accommodation options.",
+        fields: [
+          {
+            label: "Destination or city *",
+            name: "destination",
+            placeholder: "Where do you want to stay?",
+            required: true
+          },
+          {
+            label: "Check-in date *",
+            name: "departure",
+            type: "date",
+            required: true
+          },
+          {
+            label: "Check-out date *",
+            name: "returnDate",
+            type: "date",
+            required: true
+          },
+          {
+            label: "Rooms",
+            name: "rooms",
+            type: "select",
+            options: ["1 room", "2 rooms", "3 rooms", "4+ rooms"]
+          },
+          {
+            label: "Guests",
+            name: "passengers",
+            type: "select",
+            options: ["1 guest", "2 guests", "3 guests", "4 guests", "5+ guests"]
+          },
+          {
+            label: "Stay preference",
+            name: "stayType",
+            type: "select",
+            options: ["No preference", "Budget", "Business", "Family-friendly", "Premium", "Homestay"]
+          }
+        ]
+      }
+    };
+
+    let currentService = "flights";
+
+    const dynamicFields = document.getElementById("dynamic-fields");
+
+    function makeField(field) {
+      const fieldWrap = document.createElement("div");
+      fieldWrap.className = "field";
+
+      const id = "field-" + field.name;
+
+      const label = document.createElement("label");
+      label.htmlFor = id;
+      label.textContent = field.label;
+
+      fieldWrap.appendChild(label);
+
+      let input;
+
+      if (field.type === "select") {
+        input = document.createElement("select");
+
+        field.options.forEach(value => {
+          const option = document.createElement("option");
+          option.textContent = value;
+          option.value = value;
+          input.appendChild(option);
+        });
+      } else {
+        input = document.createElement("input");
+        input.type = field.type || "text";
+
+        if (field.placeholder) {
+          input.placeholder = field.placeholder;
+        }
+
+        if (field.type === "date") {
+          input.min = new Date().toISOString().slice(0, 10);
+        }
+      }
+
+      input.id = id;
+      input.name = field.name;
+
+      if (field.required) {
+        input.required = true;
+      }
+
+      fieldWrap.appendChild(input);
+
+      return fieldWrap;
+    }
+
+    function selectService(service) {
+      currentService = service;
+
+      const config = configs[service];
+
+      document.getElementById("form-title").textContent = config.title;
+      document.getElementById("form-subtitle").textContent = config.subtitle;
+
+      dynamicFields.replaceChildren(...config.fields.map(makeField));
+
+      document.querySelectorAll("[data-service]").forEach(element => {
+        const active = element.dataset.service === service;
+
+        element.classList.toggle("active", active);
+
+        if (element.classList.contains("tab")) {
+          element.setAttribute("aria-selected", String(active));
+        }
+      });
+
+      document.getElementById("form-status").classList.remove("show");
+    }
+
+    document.querySelectorAll("[data-service]").forEach(element => {
+      element.addEventListener("click", () => {
+        selectService(element.dataset.service);
+
+        if (element.classList.contains("service")) {
+          document.getElementById("booking").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("travel-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const form = event.currentTarget;
+
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const config = configs[currentService];
+
+      const lines = [
+        `OTX Travel — ${config.title}`,
+        "",
+        ...config.fields.map(field =>
+          `${field.label.replace(" *", "")}: ${data.get(field.name) || "Not specified"}`
+        ),
+        "",
+        `Name: ${data.get("customerName")}`,
+        `Email: ${data.get("customerEmail")}`,
+        `Phone / WhatsApp: ${data.get("customerPhone")}`,
+        `Preferred contact: ${data.get("contactMethod")}`,
+        `Additional notes: ${data.get("notes") || "None"}`
+      ];
+
+      const whatsappMessage = encodeURIComponent(lines.join("\n"));
+
+      const status = document.getElementById("form-status");
+
+      status.textContent =
+        "Your WhatsApp app will open with the enquiry details. Please send the message to submit your request. No booking is confirmed at this stage.";
+
+      status.classList.add("show");
+
+      window.open(
+        `https://wa.me/919625188625?text=${whatsappMessage}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    });
+
+    selectService("flights");
+  </script>
+</body>
+</html>
+
